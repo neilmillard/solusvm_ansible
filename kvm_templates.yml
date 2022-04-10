@@ -1,0 +1,21 @@
+- name: update kvmtemplates
+  hosts: kvm
+  gather_facts: false
+  become: yes
+  vars_files:
+    - vars/kvm_vars.yml
+
+  tasks:
+    - name: ensure up to date certificates
+      yum:
+        name: ca-certificates
+        state: latest
+
+    - name: Update kvm templates
+      get_url:
+        url: "https://templates.solusvm.com/kvm/{{ item }}"
+        dest: /home/solusvm/kvm/template
+        mode: 0644
+        group: 107
+        owner: 107
+      loop: "{{ kvm_templates }}"

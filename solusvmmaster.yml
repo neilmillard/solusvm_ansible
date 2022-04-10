@@ -1,0 +1,14 @@
+- name: update kvmtemplates on master
+  hosts: solusmaster
+  gather_facts: false
+  become: yes
+  vars_files:
+    - vars/kvm_vars.yml
+
+  tasks:
+    - name: ensure kvm template files exist
+      file:
+        path: "/home/solusvm/kvm/template/{{ item }}"
+        state: touch
+        mode: 0644
+      loop: "{{ kvm_templates }}"

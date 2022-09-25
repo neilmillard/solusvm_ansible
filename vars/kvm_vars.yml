@@ -7,4 +7,6 @@ kvm_templates:
   - linux-debian-11-x86_64-gen2-v1.gz
   - linux-ubuntu-16.04-server-x86_64-minimal-latest.gz
   - linux-ubuntu-18.04-x86_64-minimal-latest.gz
+  - linux-ubuntu-20.04-x86_64-minimal-latest-v1.gz
   - linux-ubuntu-20.04-x86_64-minimal-latest-v2.gz
+  - windows-2012-server-trial-x86_64-gen2-v2.gz
